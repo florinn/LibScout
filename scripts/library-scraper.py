@@ -30,6 +30,7 @@ def unix2Date(unixTime):
 
 def make_sure_path_exists(path):
     try:
+        path = path.replace("::", "_")
         os.makedirs(path)
     except OSError as exception:
         if exception.errno != errno.EEXIST:
